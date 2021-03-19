@@ -1,5 +1,5 @@
 
-# NADA2 <img src="man/figures/lakeO.png" align="right" alt="" width="120" />
+# LORECOVER <img src="man/figures/lakeO.png" align="right" alt="" width="120" />
 
 ## Table of Contents
 
