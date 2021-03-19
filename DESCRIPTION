@@ -1,0 +1,18 @@
+Package: LORECOVER
+Type: Package
+Title: Lake Okeechobee Stage Envelope Performance Measure Calculation
+Version: 0.1.0
+Date: 2021-03-19
+Authors@R: c(person("Paul", "Julian", role = c("aut", "cre"), 
+    email = "pjulian@sccf.org", comment = c(ORCID = "0000-0002-7617-1354")))
+Maintainer: Paul Julian <pjulian@sccf.org>
+URL: https://github.com/SwampThingPaul/LORECOVER
+BugReports: https://github.com/SwampThingPaul/LORECOVER/issues
+Description: Calculates normal and recovery stage envelopes for Lake Okeechobee water level stage conditions consistent with the RECOVER performance metric. 
+License: MIT + file LICENSE
+Depends: R (>= 3.0)
+Imports: lubridate, zoo
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
