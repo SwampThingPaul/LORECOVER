@@ -10,7 +10,10 @@
 ## Introduction <a name="intro"></a>
 
 Functions in this package calculate normal and recovery stage envelopes
-for Lake Okeechobee.
+for Lake Okeechobee. Complete documentation for this performance measure
+can be found on the
+[USACE](https://usace.contentdm.oclc.org/utils/getfile/collection/p16021coll7/id/14096)
+webpage.
 
 ``` r
 library(AnalystHelper)
