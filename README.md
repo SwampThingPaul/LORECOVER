@@ -1,6 +1,8 @@
 
 # LORECOVER <img src="man/figures/lakeO.png" align="right" alt="" width="120" />
 
+[![DOI](https://zenodo.org/badge/349568854.svg)](https://zenodo.org/badge/latestdoi/349568854)
+
 ## Table of Contents
 
 -   [Introduction](#intro)
