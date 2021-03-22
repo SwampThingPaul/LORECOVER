@@ -88,6 +88,12 @@
 <a href="#introduction-" class="anchor"></a>Introduction <a name="intro"></a>
 </h2>
 <p>Functions in this package calculate normal and recovery stage envelopes for Lake Okeechobee. Complete documentation for this performance measure can be found on the <a href="https://usace.contentdm.oclc.org/utils/getfile/collection/p16021coll7/id/14096">USACE</a> webpage.</p>
+<div class="figure" style="text-align: center">
+<img src="reference/figures/README-unnamed-chunk-1-1.png" alt="Generalized normal (left) and recovery (right) stage envelope scores."><p class="caption">
+Generalized normal (left) and recovery (right) stage envelope scores.
+</p>
+</div>
+<hr>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/swampthingpaul/AnalystHelper">AnalystHelper</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
@@ -104,7 +110,7 @@
 <span class="va">norm</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">dat</span>,<span class="va">CY</span><span class="op">==</span><span class="fl">2016</span><span class="op">)</span>
 <span class="va">norm.val</span><span class="op">=</span><span class="fu"><a href="reference/norm_env.html">norm_env</a></span><span class="op">(</span><span class="va">norm</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<img src="reference/figures/README-unnamed-chunk-3-1.png" alt="The Normal lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2016 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."><p class="caption">
+<img src="reference/figures/README-unnamed-chunk-4-1.png" alt="The Normal lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2016 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."><p class="caption">
 The Normal lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2016 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel.
 </p>
 </div>
@@ -117,7 +123,7 @@ The Normal lake stage envelope and approximate corresponding scores that apply f
 <span class="va">rec</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">dat</span>,<span class="va">CY</span><span class="op">==</span><span class="fl">2019</span><span class="op">)</span>
 <span class="va">rec.val</span><span class="op">=</span><span class="fu"><a href="reference/rec_env.html">rec_env</a></span><span class="op">(</span><span class="va">rec</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<img src="reference/figures/README-unnamed-chunk-5-1.png" alt="The Recovery lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2019 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."><p class="caption">
+<img src="reference/figures/README-unnamed-chunk-6-1.png" alt="The Recovery lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2019 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."><p class="caption">
 The Recovery lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2019 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel.
 </p>
 </div>

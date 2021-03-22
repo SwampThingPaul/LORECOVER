@@ -17,6 +17,17 @@ can be found on the
 [USACE](https://usace.contentdm.oclc.org/utils/getfile/collection/p16021coll7/id/14096)
 webpage.
 
+<div class="figure" style="text-align: center">
+
+<img src="man/figures/README-unnamed-chunk-1-1.png" alt="Generalized normal (left) and recovery (right) stage envelope scores."  />
+<p class="caption">
+Generalized normal (left) and recovery (right) stage envelope scores.
+</p>
+
+</div>
+
+------------------------------------------------------------------------
+
 ``` r
 library(AnalystHelper)
 library(lubridate)
@@ -37,7 +48,7 @@ norm.val=norm_env(norm)
 
 <div class="figure" style="text-align: center">
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" alt="The Normal lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2016 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."  />
+<img src="man/figures/README-unnamed-chunk-4-1.png" alt="The Normal lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2016 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."  />
 <p class="caption">
 The Normal lake stage envelope and approximate corresponding scores that
 apply for lake stages outside the desired range. Scores are actually
@@ -59,7 +70,7 @@ rec.val=rec_env(rec)
 
 <div class="figure" style="text-align: center">
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" alt="The Recovery lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2019 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."  />
+<img src="man/figures/README-unnamed-chunk-6-1.png" alt="The Recovery lake stage envelope and approximate corresponding scores that apply for lake stages outside the desired range. Scores are actually applied by the hundredths of a foot on a daily basis and may not correspond exactly to the boxes shown. For reference and as an example, 2019 stages are overlaid onto the envelope and corresponding scores are shown in the lower panel."  />
 <p class="caption">
 The Recovery lake stage envelope and approximate corresponding scores
 that apply for lake stages outside the desired range. Scores are

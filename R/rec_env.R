@@ -55,7 +55,7 @@ rec_env=function(stg.data){
   stg.data$Pen_Low2_25=with(stg.data,ifelse(Data.Value<Low2_25&Data.Value>=Low25_3,2+(0.5/(Low2_25-Low25_3))*(Low2_25-Data.Value),NA))
   stg.data$Pen_Low25_3=with(stg.data,ifelse(Data.Value<Low25_3&Data.Value>=Low3,2.5+Low25_3-Data.Value,NA))
   stg.data$Pen_Low2_3=with(stg.data,ifelse(Data.Value<Low2_3&Data.Value>=Low3,2+(2*(Low2_3-Data.Value)),NA))
-  stg.data$score=apply(stg.data[, 17:26], 1,FUN=function(x) max(x,na.rm=T))
+  stg.data$score=apply(stg.data[, 17:27], 1,FUN=function(x) max(x,na.rm=T))
 
 
   rslt=stg.data[,c("Date","Data.Value","score")]
