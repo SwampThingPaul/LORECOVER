@@ -51,7 +51,7 @@ norm_env=function(stg.data){
   stg.data$Pen_Low3=with(stg.data,ifelse(Data.Value<Low3,3+2*(Low3-Data.Value),NA))
   stg.data$Pen_Low05_1=with(stg.data,ifelse(Data.Value<Low&Data.Value>=Low1_15,0.5+(0.5/(Low-Low1_15))*(Low-Data.Value),NA))
   stg.data$Pen_Low1_15=with(stg.data,ifelse(Data.Value<Low1_15&Data.Value>=Low15_2,1+(0.5/(Low1_15-Low15_2))*(Low1_15-Data.Value),NA))
-  stg.data$Pen_Low15_2=with(stg.data,ifelse(Data.Value<Low15_2&Data.Value>=Low2_25,1.5+Low15_2-Data.Value,NA))
+  stg.data$Pen_Low15_2=with(stg.data,ifelse(Data.Value<Low15_2&Data.Value>=ifelse(is.na(Low2_25)==T,Low2_3,Low2_25),1.5+Low15_2-Data.Value,NA))
   stg.data$Pen_Low2_25=with(stg.data,ifelse(Data.Value<Low2_25&Data.Value>=Low25_3,2+(0.5/(Low2_25-Low25_3))*(Low2_25-Data.Value),NA))
   stg.data$Pen_Low25_3=with(stg.data,ifelse(Data.Value<Low25_3&Data.Value>=Low3,2.5+Low25_3-Data.Value,NA))
   stg.data$Pen_Low2_3=with(stg.data,ifelse(Data.Value<Low2_3&Data.Value>=Low3,2+(2*(Low2_3-Data.Value)),NA))
