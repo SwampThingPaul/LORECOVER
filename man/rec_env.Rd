@@ -4,10 +4,10 @@
 \alias{rec_env}
 \title{Recovery Lake Stage Envelope Score}
 \usage{
-rec_env(data)
+rec_env(stg.data)
 }
 \arguments{
-\item{data}{see details}
+\item{stg.data}{see details}
 }
 \value{
 Returns a \code{data.frame} of original data and normal stage elevation score.
@@ -16,7 +16,7 @@ Returns a \code{data.frame} of original data and normal stage elevation score.
 Recovery Lake Stage Envelope Score
 }
 \details{
-The input \code{data} is a \code{data.frame} with columns:
+The input \code{stg.data} is a \code{data.frame} with columns:
 \itemize{
 \item{\code{Date} (as a \code{POSIXct} or \code{Date} variable)}
 \item{\code{Data.Value} as stage elevation data in feet (NGVD29)}
