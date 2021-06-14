@@ -5,7 +5,7 @@
 \alias{norm.stage.score}
 \title{Normal Lake Stage Envelope thresholds}
 \format{
-An object of class \code{data.frame} with 365 rows and 14 columns.
+An object of class \code{data.frame} with 365 rows and 11 columns.
 }
 \source{
 RECOVER, 2020, Lake Okeechobee Performance Measure - Lake State

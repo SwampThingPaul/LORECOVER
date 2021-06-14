@@ -38,3 +38,5 @@ rsconnect/
 /data-raw/
 build.R
 README.rmd
+
+/src/

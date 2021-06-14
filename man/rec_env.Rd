@@ -25,8 +25,8 @@ The input \code{stg.data} is a \code{data.frame} with columns:
 \examples{
 
 # Example dataset (not real data)
-dat=data.frame(Date=seq(as.Date("2016-01-01"),
-as.Date("2016-03-02"),"1 days"),Data.Value=runif(62,12,18))
+dat=data.frame(Date=seq(as.Date("2016-01-01"),as.Date("2016-03-02"),"1 days"),
+Data.Value=runif(62,12,18))
 
-norm_env(dat)
+rec_env(dat)
 }
