@@ -90,7 +90,7 @@ citation('LORECOVER')
 #> To cite package 'LORECOVER' in publications use:
 #> 
 #>   Paul Julian (2021). LORECOVER: Lake Okeechobee Stage Envelope
-#>   Performance Measure Calculation. R package version 0.1.0.
+#>   Performance Measure Calculation. R package version 0.2.0.
 #>   https://github.com/SwampThingPaul/LORECOVER
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -99,7 +99,7 @@ citation('LORECOVER')
 #>     title = {LORECOVER: Lake Okeechobee Stage Envelope Performance Measure Calculation},
 #>     author = {Paul Julian},
 #>     year = {2021},
-#>     note = {R package version 0.1.0},
+#>     note = {R package version 0.2.0},
 #>     url = {https://github.com/SwampThingPaul/LORECOVER},
 #>   }
 ```
