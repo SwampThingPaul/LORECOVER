@@ -10,7 +10,6 @@
 #' \item{`Data.Value` as stage elevation data in feet (NGVD29)}
 #' }
 
-#' @importFrom zoo na.approx
 #' @importFrom lubridate leap_year
 #' @return Returns a `data.frame` of original data and normal stage elevation score.
 #'
@@ -19,8 +18,8 @@
 #' @examples
 #'
 #' # Example dataset (not real data)
-#' dat=data.frame(Date=seq(as.Date("2016-01-01"),as.Date("2016-03-02"),"1 days"),
-#' Data.Value=runif(62,12,18))
+#' dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
+#' dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 #'
 #' rec_env(dat)
 
@@ -40,8 +39,11 @@ rec_env=function(stg.data){
   if(length(yr)>0){
     # Fills values for leap year
   for(i in 1:length(yr)){
-  leap_dates=seq(as.Date(paste(yr[i],02,28,sep="-")),as.Date(paste(yr[i],03,01,sep="-")),"1 days")
-  stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=na.approx(stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars])
+  # leap_dates=seq(as.Date(paste(yr[i],02,28,sep="-")),as.Date(paste(yr[i],03,01,sep="-")),"1 days")
+  # stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=na.approx(stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars])
+    leap_dates=as.Date(paste(yr[i],02,29,sep="-"))
+    stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=rec.score[rec.score$month==2&rec.score$day==28,vars]
+
   }
   }
   ##

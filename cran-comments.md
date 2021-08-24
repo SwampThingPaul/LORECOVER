@@ -19,3 +19,10 @@
 
 ### devtools::check() locally:
 <span style="color:green">0 errors √</span> | <span style="color:green">0 warnings √</span> | <span style="color:green">1 note √</span>
+
+
+## R CMD check results (2021-08-24)
+
+### devtools::check() locally:
+<span style="color:green">0 errors √</span> | <span style="color:green">0 warnings √</span> | <span style="color:green">1 note √</span>
+
