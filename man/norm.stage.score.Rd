@@ -18,4 +18,4 @@ Thresholds for the normal lake stage envelope to approximate corresponding score
 
 Values are represented as Feet NGVD29
 }
-\keyword{dataset}
+\keyword{datasets}

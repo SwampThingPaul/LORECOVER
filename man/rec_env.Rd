@@ -4,16 +4,18 @@
 \alias{rec_env}
 \title{Recovery Lake Stage Envelope Score}
 \usage{
-rec_env(stg.data)
+rec_env(stg.data, allinfo = FALSE)
 }
 \arguments{
 \item{stg.data}{see details}
+
+\item{allinfo}{TRUE/FALSE if TRUE, the function will return values used in computing score}
 }
 \value{
 Returns a \code{data.frame} of original data and normal stage elevation score.
 }
 \description{
-Recovery Lake Stage Envelope Score
+Calculates a recovery lake stage envelope score
 }
 \details{
 The input \code{stg.data} is a \code{data.frame} with columns:
@@ -23,12 +25,10 @@ The input \code{stg.data} is a \code{data.frame} with columns:
 }
 }
 \examples{
-\donttest{
 # Example dataset (not real data)
 dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
 dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 
 score=rec_env(dat)
 # END
-}
 }

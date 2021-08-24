@@ -7,5 +7,4 @@
 ^README.rmd.*$
 ^docs\.*$
 
-^src\.*$
-
+^old folders - issues\.*$

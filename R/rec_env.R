@@ -1,8 +1,9 @@
-
 #' Recovery Lake Stage Envelope Score
 #'
-#' @param stg.data see details
 #'
+#' @description Calculates a recovery lake stage envelope score
+#' @param stg.data see details
+#' @param allinfo TRUE/FALSE if TRUE, the function will return values used in computing score
 #' @details
 #' The input `stg.data` is a `data.frame` with columns:
 #' \itemize{
@@ -15,23 +16,21 @@
 #' @export
 #'
 #' @examples
-#'\donttest{
 #' # Example dataset (not real data)
 #' dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
 #' dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 #'
 #' score=rec_env(dat)
 #' # END
-#' }
 
-rec_env=function(stg.data){
+rec_env=function(stg.data,allinfo=FALSE){
   stg.data$month=as.numeric(format(stg.data$Date,"%m"))
   stg.data$CY=as.numeric(format(stg.data$Date,"%Y"))
   stg.data$day=as.numeric(format(stg.data$Date,"%d"))
 
   rec.score=data.frame(rec.stage.score)
   stg.data=merge(stg.data[,c("Date","month","day","CY","Data.Value")],
-             rec.score,c("month","day"),all.x=T)
+                 rec.score,c("month","day"),all.x=T)
   stg.data=stg.data[order(stg.data$Date),]
 
   # leap=leap_year(stg.data$Date)
@@ -84,10 +83,14 @@ rec_env=function(stg.data){
   stg.data$penalty=with(stg.data,
                         ifelse(zone==0,zs.s[1]+2*(LP3-Data.Value),
                                ifelse(zone==9,zs.s[9]+2*(Data.Value-UP2),
-                                      ifelse(zone==6,0,zs.s[zone]+(zs.s[zone+1]-zs.s[zone])*(Data.Value-score1)/(score2-score1))))*sign(Data.Value-LP0.5))
+                                      ifelse(zone==6,0,
+                                             zs.s[ifelse(zone==0,1,zone)]+(zs.s[zone+1]-zs.s[ifelse(zone==0,1,zone)])*(Data.Value-score1)/(score2-score1))))*sign(Data.Value-LP0.5))
 
-  rslt=stg.data[,c("Date","Data.Value","zone","score1","score2","penalty")]
-  options(warn = -1)
+  if(allinfo==TRUE){
+    rslt=stg.data[,c("Date","Data.Value","zone","LP0.5","score1","score2","penalty")]}else{
+      rslt=stg.data[,c("Date","Data.Value","penalty")]
+    }
+  # options(warn = -1)
   return(rslt)
 
 }

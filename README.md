@@ -1,3 +1,5 @@
+Untitled
+================
 
 # LORECOVER <img src="man/figures/lakeO.png" align="right" alt="" width="120" />
 
@@ -90,7 +92,7 @@ citation('LORECOVER')
 #> To cite package 'LORECOVER' in publications use:
 #> 
 #>   Paul Julian (2021). LORECOVER: Lake Okeechobee Stage Envelope
-#>   Performance Measure Calculation. R package version 0.2.0.
+#>   Performance Measure Calculation. R package version 0.2.2.
 #>   https://github.com/SwampThingPaul/LORECOVER
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -99,7 +101,7 @@ citation('LORECOVER')
 #>     title = {LORECOVER: Lake Okeechobee Stage Envelope Performance Measure Calculation},
 #>     author = {Paul Julian},
 #>     year = {2021},
-#>     note = {R package version 0.2.0},
+#>     note = {R package version 0.2.2},
 #>     url = {https://github.com/SwampThingPaul/LORECOVER},
 #>   }
 ```

@@ -1,7 +1,8 @@
-
 #' Normal Lake Stage Envelope Score
 #'
+#' @description Calculates a normal lake stage envelope score
 #' @param stg.data see details
+#' @param allinfo TRUE/FALSE if TRUE, the function will return values used in computing score
 #'
 #' @details
 #' The input `stg.data` is a `data.frame` with columns:
@@ -15,23 +16,21 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' # Example dataset (not real data)
 #' dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
 #' dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 #'
 #' score=norm_env(dat)
 #' # END
-#' }
 
-norm_env=function(stg.data){
+norm_env=function(stg.data,allinfo=FALSE){
   stg.data$month=as.numeric(format(stg.data$Date,"%m"))
   stg.data$CY=as.numeric(format(stg.data$Date,"%Y"))
   stg.data$day=as.numeric(format(stg.data$Date,"%d"))
 
   norm.score=data.frame(norm.stage.score)
   stg.data=merge(stg.data[,c("Date","month","day","CY","Data.Value")],
-             norm.score,c("month","day"),all.x=T)
+                 norm.score,c("month","day"),all.x=T)
   stg.data=stg.data[order(stg.data$Date),]
 
   # leap=leap_year(stg.data$Date)
@@ -55,7 +54,7 @@ norm_env=function(stg.data){
   zs.s=zs$score
 
   ##
-  stg.data$zone=with(stg.data,ifelse(is.na(Data.Value)==T,NA,
+  stg.data$zone=with(stg.data,ifelse(is.na(Data.Value)==T,0,
                                      ifelse(Data.Value<LP3,0,
                                             ifelse(Data.Value<LP2.5,1,
                                                    ifelse(Data.Value<LP2,2,
@@ -72,7 +71,7 @@ norm_env=function(stg.data){
                                                             ifelse(zone==5,LP1,
                                                                    ifelse(zone==6,LP0.5,
                                                                           ifelse(zone==7,UP0.5,
-                                                                                 ifelse(zone==8,UP1,NA)))))))))
+                                                                                 ifelse(zone==8,UP1,0)))))))))
 
   stg.data$score2=with(stg.data,ifelse(zone==1,LP2.5,
                                        ifelse(zone==2,LP2,
@@ -81,13 +80,28 @@ norm_env=function(stg.data){
                                                             ifelse(zone==5,LP0.5,
                                                                    ifelse(zone==6,UP0.5,
                                                                           ifelse(zone==7,UP1,
-                                                                                 ifelse(zone==8,UP2,NA)))))))))
+                                                                                ifelse(zone==8,UP2,0)))))))))
+
+
   stg.data$penalty=with(stg.data,
                         ifelse(zone==0,zs.s[1]+2*(LP3-Data.Value),
                                ifelse(zone==9,zs.s[9]+2*(Data.Value-UP2),
-                                      ifelse(zone==6,0,zs.s[zone]+(zs.s[zone+1]-zs.s[zone])*(Data.Value-score1)/(score2-score1))))*sign(Data.Value-LP0.5))
+                                      ifelse(zone==6,0,
+                                             zs.s[ifelse(zone==0,1,zone)]+(zs.s[ifelse(zone==0,1,zone)+1]-zs.s[ifelse(zone==0,1,zone)])*(Data.Value-score1)/(score2-score1))))*sign(Data.Value-LP0.5))
 
-  rslt=stg.data[,c("Date","Data.Value","zone","LP0.5","score1","score2","penalty")]
-  options(warn = -1)
+  # zone0.val=with(stg.data,ifelse(zone==0,zs.s[1]+2*(LP3-Data.Value),NA))
+  # zone9.val=with(stg.data,ifelse(zone==9,zs.s[9]+2*(Data.Value-UP2),NA))
+  # zone6.val=with(stg.data,ifelse(zone==6,0,NA))
+  # zone.val=with(stg.data,ifelse(zone%in%c(0,6,9),NA,
+  #                 zs.s[ifelse(zone==0,1,zone)]+(zs.s[zone+1]-zs.s[ifelse(zone==0,1,zone)])*(Data.Value-score1)/(score2-score1)))
+
+
+
+
+
+  if(allinfo==TRUE){
+  rslt=stg.data[,c("Date","Data.Value","zone","LP0.5","score1","score2","penalty")]}else{
+    rslt=stg.data[,c("Date","Data.Value","penalty")]
+  }
   return(rslt)
 }

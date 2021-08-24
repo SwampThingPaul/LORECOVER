@@ -2,7 +2,7 @@
 
 * Local: Windows, R version 4.0.4
 
-## R CMD check results (2021-03-19)
+## R CMD check results (2021-08-24)
 
 ### devtools::check() locally:
 ```
@@ -14,15 +14,3 @@
 ```
 
 <span style="color:green">0 errors √</span> | <span style="color:green">0 warnings √</span> | <span style="color:red">1 note x</span>
-
-## R CMD check results (2021-06-14)
-
-### devtools::check() locally:
-<span style="color:green">0 errors √</span> | <span style="color:green">0 warnings √</span> | <span style="color:green">1 note √</span>
-
-
-## R CMD check results (2021-08-24)
-
-### devtools::check() locally:
-<span style="color:green">0 errors √</span> | <span style="color:green">0 warnings √</span> | <span style="color:green">1 note √</span>
-

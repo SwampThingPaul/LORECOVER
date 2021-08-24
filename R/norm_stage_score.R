@@ -8,7 +8,7 @@
 #' @usage data(norm.stage.score)
 #'
 #' @docType data
-#' @keywords dataset
+#' @keywords datasets
 #' @name norm.stage.score
 #' @source RECOVER, 2020, Lake Okeechobee Performance Measure - Lake State
 
