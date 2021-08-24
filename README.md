@@ -1,5 +1,3 @@
-Untitled
-================
 
 # LORECOVER <img src="man/figures/lakeO.png" align="right" alt="" width="120" />
 
