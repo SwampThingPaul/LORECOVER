@@ -2,4 +2,3 @@
 
 export(norm_env)
 export(rec_env)
-importFrom(lubridate,leap_year)

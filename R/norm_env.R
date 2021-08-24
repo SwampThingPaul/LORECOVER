@@ -9,18 +9,20 @@
 #' \item{`Date` (as a `POSIXct` or `Date` variable)}
 #' \item{`Data.Value` as stage elevation data in feet (NGVD29)}
 #' }
-
-#' @importFrom lubridate leap_year
+#'
 #' @return Returns a `data.frame` of original data and normal stage elevation score.
 #'
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' # Example dataset (not real data)
 #' dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
 #' dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 #'
-#' norm_env(dat)
+#' score=norm_env(dat)
+#' # END
+#' }
 
 norm_env=function(stg.data){
   stg.data$month=as.numeric(format(stg.data$Date,"%m"))
@@ -32,20 +34,20 @@ norm_env=function(stg.data){
              norm.score,c("month","day"),all.x=T)
   stg.data=stg.data[order(stg.data$Date),]
 
-  leap=leap_year(stg.data$Date)
-  yr=unique(stg.data[leap==T,"CY"])
-  vars=c("LP3", "LP2.5", "LP2", "LP1.5", "LP1", "LP0.5","UP0.5", "UP1", "UP2")
-  if(length(yr)>0){
-  # Fills values for leap year
-  for(i in 1:length(yr)){
-  # leap_dates=seq(as.Date(paste(yr[i],02,28,sep="-")),as.Date(paste(yr[i],03,01,sep="-")),"1 days")
-  # stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=na.approx(stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars])
-
-  leap_dates=as.Date(paste(yr[i],02,29,sep="-"))
-  stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=norm.score[norm.score$month==2&norm.score$day==28,vars]
-
-  }
-  }
+  # leap=leap_year(stg.data$Date)
+  # yr=unique(stg.data[leap==T,"CY"])
+  # vars=c("LP3", "LP2.5", "LP2", "LP1.5", "LP1", "LP0.5","UP0.5", "UP1", "UP2")
+  # if(length(yr)>0){
+  # # Fills values for leap year
+  # for(i in 1:length(yr)){
+  # # leap_dates=seq(as.Date(paste(yr[i],02,28,sep="-")),as.Date(paste(yr[i],03,01,sep="-")),"1 days")
+  # # stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=na.approx(stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars])
+  #
+  # leap_dates=as.Date(paste(yr[i],02,29,sep="-"))
+  # stg.data[stg.data$CY==yr[i]&as.Date(stg.data$Date)%in%leap_dates,vars]=norm.score[norm.score$month==2&norm.score$day==28,vars]
+  #
+  # }
+  # }
   ##
   zs=data.frame(zone=c("LP3", "LP2.5", "LP2", "LP1.5", "LP1", "LP0.5","UP0.5", "UP1", "UP2"),
                 score=c(3,2.5,2,1.5,1.0,0.5,0.5,1.0,2.0))
@@ -53,7 +55,7 @@ norm_env=function(stg.data){
   zs.s=zs$score
 
   ##
-  stg.data$zone=with(stg.data,ifelse(is.na(Data.Value)==T,0,
+  stg.data$zone=with(stg.data,ifelse(is.na(Data.Value)==T,NA,
                                      ifelse(Data.Value<LP3,0,
                                             ifelse(Data.Value<LP2.5,1,
                                                    ifelse(Data.Value<LP2,2,
@@ -85,7 +87,7 @@ norm_env=function(stg.data){
                                ifelse(zone==9,zs.s[9]+2*(Data.Value-UP2),
                                       ifelse(zone==6,0,zs.s[zone]+(zs.s[zone+1]-zs.s[zone])*(Data.Value-score1)/(score2-score1))))*sign(Data.Value-LP0.5))
 
-  rslt=stg.data[,c("Date","Data.Value","penalty")]
+  rslt=stg.data[,c("Date","Data.Value","zone","LP0.5","score1","score2","penalty")]
   options(warn = -1)
   return(rslt)
 }

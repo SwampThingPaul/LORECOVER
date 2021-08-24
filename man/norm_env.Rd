@@ -23,9 +23,12 @@ The input \code{stg.data} is a \code{data.frame} with columns:
 }
 }
 \examples{
+\donttest{
 # Example dataset (not real data)
 dates=seq(as.Date("2016-01-01"),as.Date("2016-02-02"),"1 days")
 dat=data.frame(Date=dates,Data.Value=runif(33,12,18))
 
-norm_env(dat)
+score=norm_env(dat)
+# END
+}
 }
